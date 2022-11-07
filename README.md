@@ -1,8 +1,6 @@
 ## Source code to plot a Forest Plot
 
-1.  Import necessary packages
-
-<!-- -->
+### Import necessary packages
 
     ## Loading required package: grid
 
@@ -10,9 +8,7 @@
 
     ## Loading required package: checkmate
 
-1.  Import data
-
-<!-- -->
+### Import data
 
     data<-read.csv("demo.csv")
     print(data)
@@ -25,9 +21,7 @@
     ## 5     3 1.052(1.017-1.087) 1.052 1.017 1.087 (   )   -
     ## 6     4  0.978(0.94-1.018) 0.978 0.940 1.018 (   )   -
 
-1.  Assign values from specific columns for your forest plot
-
-<!-- -->
+### Assign values from specific columns for your forest plot
 
     cochrane_from_rmeta <- 
       structure(list(
@@ -40,7 +34,7 @@
 
     tabletext<-cbind(data$Group, data$VALUE)
 
-1.  Set the format parameters
+### Set the format parameters
 
 -   xrange(a, b, by = c) : here a is the lower limit, b is the upper
     limit, and c is the interval of of x axis.
@@ -55,9 +49,7 @@
     fontsize = 1.0
     boxsize = 0.1
 
-1.  Visualization
-
-<!-- -->
+### Visualization
 
     #Generate forestplot
     forestplot(tabletext,

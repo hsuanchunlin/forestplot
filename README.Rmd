@@ -10,20 +10,20 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Source code to plot a Forest Plot
-1. Import necessary packages
+### Import necessary packages
 ```{r, echo=FALSE}
 library(ggplot2)
 library(plyr)
 library(lattice)
 library(forestplot)
 ```
-2. Import data
+### Import data
 ```{r}
 data<-read.csv("demo.csv")
 print(data)
 ```
 
-3. Assign values from specific columns for your forest plot
+### Assign values from specific columns for your forest plot
 ```{r}
 cochrane_from_rmeta <- 
   structure(list(
@@ -37,7 +37,7 @@ cochrane_from_rmeta <-
 tabletext<-cbind(data$Group, data$VALUE)
 ```
 
-4. Set the format parameters
+### Set the format parameters
 - xrange(a, b, by = c) : here a is the lower limit, b is the upper limit, and
 c is the interval of of x axis.
 - fontsize: set the size of the fonts in the plot.
@@ -48,7 +48,7 @@ xrange = seq(0.9, 1.2, by=0.05)
 fontsize = 1.0
 boxsize = 0.1
 ```
-5. Visualization
+### Visualization
 
 ```{r}
 #Generate forestplot
