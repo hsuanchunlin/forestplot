@@ -2,6 +2,11 @@
 
 ### Import necessary packages
 
+    library(ggplot2)
+    library(plyr)
+    library(lattice)
+    library(forestplot)
+
     ## Loading required package: grid
 
     ## Loading required package: magrittr
