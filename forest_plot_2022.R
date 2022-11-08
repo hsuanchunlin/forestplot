@@ -26,10 +26,26 @@ cochrane_from_rmeta <-
 tabletext<-cbind(data$Group, data$VALUE)
 
 #Setting parameters
+xlab_text = "aHR (95% CI)" #Set x label
+#Set range of x axis
 xrange = seq(0.9, 1.2, by=0.05)
-fontsize = 1.0
+
+#Set fontsizes
+fontsize_lab = 1.0 #label
+fontsize_xlab = 1.2 #label of x axis
+fontsize_ticks = 0.9 #ticks of x axis
+
+#Set box size
 boxsize = 0.1
 
+#Set colors
+boxcolor = "red"
+textcolor = "black"
+linecolor = "steelblue" #for the line of each sample
+labelcolor = "darkgreen" #color of label text
+axiscolor = "green"
+colorlabel = "orange"
+hrelcolor = "black"
 
 #Generate forestplot
 forestplot(tabletext,
@@ -38,19 +54,19 @@ forestplot(tabletext,
            new_page = TRUE,
            xlog=FALSE,
            boxsize=boxsize,
-           col.lab="grey29",
+           col.lab=colorlabel,
            #is.summary=c(TRUE,TRUE,rep(FALSE,8),TRUE,rep(FALSE,7),TRUE,rep(FALSE,6),TRUE,rep(FALSE,5),TRUE,rep(FALSE,4),TRUE,rep(FALSE,3),TRUE,rep(FALSE,2)),
            is.summary = rep(FALSE, length(data$HR)), #Set which one is summary
            #xlog=TRUE,
-           xlab="aHR (95% CI)",
-           txt_gp = fpTxtGp(label =gpar(fontfamily = "Arial", cex=fontsize,col=1),
-                            xlab = gpar(fontfamily = "Arial", cex=fontsize,col=1),
-                            ticks = gpar(fontfamily = "Arial", cex=fontsize)),
-           col=fpColors(box="black",line="black",text="black"),
+           xlab=xlab_text,
+           txt_gp = fpTxtGp(label =gpar(fontfamily = "Arial", cex=fontsize_lab,col=labelcolor),
+                            xlab = gpar(fontfamily = "Arial", cex=fontsize_xlab,col=axiscolor),
+                            ticks = gpar(fontfamily = "Arial", cex=fontsize_ticks)),
+           col=fpColors(box=boxcolor,line=linecolor,text=textcolor),
            xticks = xrange,
            zero = 1,
            fn.ci_norm = fpDrawCircleCI, #Change the mark to circle
            ci.vertices = TRUE,
            ci.vertices.height = 0.1,
-           hrzl_lines = list("2" = gpar( col = "#000044")))
+           hrzl_lines = list("2" = gpar( col = hrelcolor)))
 
